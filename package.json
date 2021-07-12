@@ -1,0 +1,22 @@
+{
+  "name": "abouttypescript",
+  "version": "1.0.0",
+  "description": "웹 게임을 통한 Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/window101/AboutTypescript.git"
+  },
+  "author": "Hwajun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/window101/AboutTypescript/issues"
+  },
+  "homepage": "https://github.com/window101/AboutTypescript#readme",
+  "dependencies": {
+    "typescript": "^4.3.5"
+  }
+}
