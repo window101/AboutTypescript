@@ -7,7 +7,7 @@ class User extends Model {
     public readonly id!: number;
     public nickname!: string;
     public userId!: string;
-    public pasword!: string;
+    public password!: string;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
 }
@@ -35,7 +35,7 @@ User.init({
 
 });
 
-export const associate = (db) => {
+export const associate = (db: dbType) => {
 
 }
 
