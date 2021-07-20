@@ -2,6 +2,7 @@
 import { DataTypes, Model } from 'sequelize';
 import { dbType } from '.';
 import { sequelize } from './sequelize'; 
+
 class Image extends Model {
     public readonly id!: number;
     public src!: number;
