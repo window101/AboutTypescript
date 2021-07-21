@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.get('/', isLoggedIn, (req, res) => { // 로그인했다면 사용자 정보 불러들이기
     const user = req.user!.toJSON() as User;
-    delete user.password;
-    //const { password: temp, ...userWithoutPassword } = user;
+    //delete user.password;
+    const { password: temp, ...userWithoutPassword } = user;
     return res.json(user);
 });
 

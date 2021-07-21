@@ -20,7 +20,7 @@ Image.init({
     modelName: 'Image',
     tableName: 'image',
     charset: 'utf8',
-    collate: 'utf8_general_cli',
+    collate: 'utf8_general_ci',
 })
 
 export const associate = (db: dbType) => {

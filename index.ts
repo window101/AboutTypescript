@@ -10,6 +10,10 @@ import * as hpp from "hpp";
 import * as helmet from "helmet";
 
 import { Request, Response, NextFunction } from "express";
+import { sequelize } from './models';
+import userRouter from './routes/user';
+import postRouter from './routes/post';
+
 
 dotenv.config();
 const app = express();
@@ -17,6 +21,14 @@ const prod: boolean = process.env.NODE_ENV === 'production';
 
 
 app.set('port', prod ? process.env.PORT : 3065);
+
+sequelize.sync({ force: false })
+    .then(() => {
+        console.log('데이터베이스 연결 성공');
+    })
+    .catch((err: Error) => {
+        console.error(err);
+    });
 
 if(prod) {
     app.use(hpp());
@@ -52,9 +64,14 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/user', userRouter);
+app.use('/post', postRouter);
+
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.send('nodebird 정상동작');
 })
+
+
 app.listen(app.get('port'), () => {
     console.log("server is running on " + app.get('port'));
 });
