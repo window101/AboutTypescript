@@ -13,7 +13,8 @@ import { Request, Response, NextFunction } from "express";
 import { sequelize } from './models';
 import userRouter from './routes/user';
 import postRouter from './routes/post';
-
+import postsRouter from './routes/posts';
+import hashtagRouter from './routes/hashtag';
 
 dotenv.config();
 const app = express();
@@ -66,6 +67,9 @@ app.use(passport.session());
 
 app.use('/user', userRouter);
 app.use('/post', postRouter);
+app.use('/posts', postsRouter);
+app.use('/hashtag', hashtagRouter);
+
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.send('nodebird 정상동작');
